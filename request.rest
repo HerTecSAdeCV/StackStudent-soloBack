@@ -1,0 +1,405 @@
+//////////////////////////////////////////////////////TABLE PERSONALADMIN//////////////////////////////////////////////////////////////////////
+//Creacion de Rector Universidad
+###
+POST http://localhost:5000/personal
+Content-Type: application/json
+
+{
+    "nombre":"Fernando",
+    "apellidoP":"Izazaga",
+    "apellidoM":"Martínez",
+    "correoInstitucional":"FerRector@utn.edu.mx",
+    "matricula":"213271045",
+    "contraseña":"C.ronaldo2022",
+    "confcontraseña":"C.ronaldo2022",
+    "Carrera_idCarrera": 0,
+    "Carrera_Area_idArea": 0
+}
+
+//{
+//    "apellidoP":"Izazaga",
+//    "nombre":"Daniel",
+//    "apellidoM":"Martínez",
+//    "correoInstitucional":"DaniTI@utn.edu.mx",
+//    "matricula":"213271045",
+//    "contraseña":"C.ronaldo2022",
+//    "confcontraseña":"C.ronaldo2022",
+//    "Carrera_idCarrera": 1,
+//    "Carrera_Area_idArea": 1
+//}
+
+//Obtener Personal Academico
+###
+GET http://localhost:5000/personal
+
+//Obtener Personal Academico por id
+###
+GET http://localhost:5000/personal/c314c434-9b77-4afa-bae2-578c274f2dd3
+
+//Editar Personal Academico por id
+###
+PATCH  http://localhost:5000/personal/c314c434-9b77-4afa-bae2-578c274f2dd3
+Content-Type: application/json
+
+{
+    "nombre":"Fernando",
+    "apellidoP":"Izazaga",
+    "apellidoM":"Martínez",
+    "correoInstitucional":"FernandoRector@utn.edu.mx",
+    "matricula":"213271045",
+    "contraseña":"C.ronaldo2022",
+    "confcontraseña":"C.ronaldo2022",
+    "Carrera_idCarrera": 0,
+    "Carrera_Area_idArea": 0
+}
+//Borrar Registro
+###
+DELETE http://localhost:5000/personal/
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE AREAS//////////////////////////////////////////////////////////////////////
+//Creacion de areas
+###
+POST http://localhost:5000/area
+Content-Type: application/json
+
+{
+    "nombreArea": "Medicina"
+}
+
+//Obtener Areas
+###
+GET http://localhost:5000/area
+
+//Obtener Areas por ID
+###
+GET http://localhost:5000/area/7668a717-5fd9-4290-9757-650aafc4f47e
+
+//Actualizacion de areas
+###
+PATCH  http://localhost:5000/area/7668a717-5fd9-4290-9757-650aafc4f47e
+Content-Type: application/json
+
+{
+    "nombreArea": "Tecnologias de la Información"
+}
+
+//Borrar Registro
+###
+DELETE http://localhost:5000/area/4b427b81-f8c3-4e5f-9a38-e7c25199f860
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE CARRERAS//////////////////////////////////////////////////////////////////////
+//Creacion de carreras
+###
+POST http://localhost:5000/carrera
+Content-Type: application/json
+
+{
+    "nombreCarrera": "Error",
+    "Area_idArea":1
+}
+
+//Obtener carrera
+###
+GET http://localhost:5000/carrera
+
+//Obtener Carreras por ID
+###
+GET http://localhost:5000/carrera/2443c621-254d-4c64-acea-43e613daa6c3
+
+//Actualizacion de areas
+###
+PATCH  http://localhost:5000/carrera/2443c621-254d-4c64-acea-43e613daa6c3
+Content-Type: application/json
+
+{
+    "nombreCarrera": "Tecnologias de la Información",
+    "Area_idArea" : 1
+}
+
+//Borrar Registro
+###
+DELETE http://localhost:5000/carrera/2443c621-254d-4c64-acea-43e613daa6c3
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE GRADO//////////////////////////////////////////////////////////////////////
+//Creacion de GRADO
+###
+POST http://localhost:5000/grado
+Content-Type: application/json
+
+{
+    "nombreGrado": "1001V",
+    "ModeloEstudio_idModeloEstudio":1
+}
+
+//Obtener GRADO
+###
+GET http://localhost:5000/grado
+
+//Obtener GRADO por ID
+###
+GET http://localhost:5000/grado/4b79e48b-2584-410d-9ad9-a2485b58d2d7
+
+//Actualizacion de GRADO
+###
+PATCH  http://localhost:5000/grado/4b79e48b-2584-410d-9ad9-a2485b58d2d7
+Content-Type: application/json
+
+{
+    "nombreGrado": "11V",
+    "ModeloEstudio_idModeloEstudio" : 2
+}
+
+//Borrar GRADO
+###
+DELETE http://localhost:5000/grado/255d2bde-9ff4-44e0-9f46-f51cbdceea51
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE GRUPO//////////////////////////////////////////////////////////////////////
+//Creacion de GRUPO
+###
+POST http://localhost:5000/grupo
+Content-Type: application/json
+
+{
+    "nombreGrupo": "IC-31V",
+    "Carrera_idCarrera": 1,
+    "Carrera_Area_idArea": 1,
+    "Grado_idGrado": 1
+}
+
+//Obtener GRUPO
+###
+GET http://localhost:5000/grupo
+
+//Obtener GRUPO por ID
+###
+GET http://localhost:5000/grupo/98701f0a-c025-4fe8-a82c-3eb58e2b3236
+
+//Actualizacion de GRUPO
+###
+PATCH  http://localhost:5000/grupo/82cb2162-25b4-4d46-b412-5dab850a8dab
+Content-Type: application/json
+
+{
+    "nombreGrupo": "IC-31V",
+    "Carrera_idCarrera": 1,
+    "Carrera_Area_idArea": 2,
+    "Grado_idGrado": 3
+}
+
+//Borrar GRUPO
+###
+DELETE http://localhost:5000/grupo/9eb0b328-9d06-4c01-919f-d3dfe3b9347b
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE MATERIA//////////////////////////////////////////////////////////////////////
+//Creacion de MATERIA
+###
+POST http://localhost:5000/materia
+Content-Type: application/json
+
+{
+    "nombreMateria": "Web 5.0",
+    "Grado_idGrado": 1,
+    "Grado_ModeloEstudio_idModeloEstudio":1
+}
+
+//Obtener MATERIA
+###
+GET http://localhost:5000/materia
+
+//Obtener MATERIA por ID
+###
+GET http://localhost:5000/materia/76efc9cd-3363-47fc-8544-6bacc81e5fcb
+
+//Actualizacion de MATERIA
+###
+PATCH  http://localhost:5000/materia/c1d8a219-a184-435b-9542-2c50aebac75f
+Content-Type: application/json
+
+{
+    "nombreMateria": "Movil 2.0"
+}
+
+//Borrar MATERIA
+###
+DELETE http://localhost:5000/materia/f0eb2ef7-ba2c-4c17-af09-b01af0192f46
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE MODELO DE ESTUDIO//////////////////////////////////////////////////////////////////////
+//Creacion de MODELO DE ESTUDIO
+###
+POST http://localhost:5000/modeloEstudio
+Content-Type: application/json
+
+{
+    "nombreModeloEstudio": "Cuatrimestral",
+    "periodoModeloEstudio": "2023-2"
+}
+
+//Obtener MODELO DE ESTUDIO
+###
+GET http://localhost:5000/modeloEstudio
+
+//Obtener MODELO DE ESTUDIO por ID
+###
+GET http://localhost:5000/modeloEstudio/57999d03-ce35-490c-a13b-ec8abc638a20
+
+//Actualizacion de MODELO DE ESTUDIO
+###
+PATCH  http://localhost:5000/modeloEstudio/e26cffc8-cc89-44cb-b236-eb6364aae6c9
+Content-Type: application/json
+
+{
+    "nombreModeloEstudio": "Semestral",
+    "periodoModeloEstudio": "2023-1"
+}
+
+//Borrar MODELO DE ESTUDIO
+###
+DELETE http://localhost:5000/modeloEstudio/c2d46d41-8647-4fdf-8896-cb0860bfafe7
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE ALUMNO/////////////////////////////////////////////////////////////////////////
+//Creacion de ALUMNO
+###
+POST http://localhost:5000/alumnos
+Content-Type: application/json
+
+{
+    "nombreAlumno": "Daniel",
+    "nombre2Alumno": "Alejandro",
+    "apellidopAlumno": "Izazaga",
+    "apellidomAlumno": "Martínez",
+    "matricula": "213271041",
+    "correoInstitucional": "213271041@alumnos.utn.edu.mx",
+    "contraseña": "C.ronaldo2022",
+    "confcontraseña": "C.ronaldo2022",
+    "estado": "Activo",
+    "Grupo_idGrupo": 1,
+    "Grupo_Carrera_idCarrera":1,
+    "Grupo_Grado_idGrado": 1
+}
+
+//Obtener ALUMNO
+###
+GET http://localhost:5000/alumnos
+
+//Obtener ALUMNO por ID
+###
+GET http://localhost:5000/alumnos/c3900d78-511b-438d-bde3-e51fcdd57728
+
+//Actualizacion de ALUMNO
+###
+PATCH  http://localhost:5000/alumnos/3d0e4122-2b01-4e30-a741-522b1f789008
+Content-Type: application/json
+
+{
+    "nombreAlumno": "Daniel",
+    "nombre2Alumno": "S/N",
+    "apellidopAlumno": "Izazaga",
+    "apellidomAlumno": "Martínez",
+    "matricula": "213271041",
+    "correoInstitucional": "213271041@alumnos.utn.edu.mx",
+    "contraseña": "C.ronaldo2022SIU",
+    "confcontraseña": "C.ronaldo2022SIU",
+    "estado": "Activar",
+    "Grupo_idGrupo": 2,
+    "Grupo_Carrera_idCarrera": 3,
+    "Grupo_Grado_idGrado": 4
+}
+
+//Borrar ALUMNO
+###
+DELETE http://localhost:5000/alumnos/cfe5be4f-0c83-44b6-b317-97f8038b5ee5
+
+
+
+
+
+//////////////////////////////////////////////////////////////TABLE PROFESOR/////////////////////////////////////////////////////////////////////////
+//Creacion de PROFESOR
+###
+POST http://localhost:5000/profesor
+Content-Type: application/json
+
+{
+    "nombreProfesor": "Fernando 3",
+    "apellidopProfesor": "Izazaga",
+    "apellidomProfesor": "Martínez",
+    "matriculaProfesor": "122334456",
+    "correoInstitucional": "122334456@alumnos.utn.edu",
+    "contraseña": "hashPassword",
+    "confcontraseña": "hashPassword"
+}
+
+//Obtener PROFESOR
+###
+GET http://localhost:5000/profesor
+
+//Obtener PROFESOR por ID
+###
+GET http://localhost:5000/profesor/442b03dc-6873-4856-a469-458a038fc726
+
+//Actualizacion de PROFESOR
+###
+PATCH  http://localhost:5000/profesor/720062c5-87d2-4924-8253-8be7b89e3f89
+Content-Type: application/json
+
+{
+    "nombreProfesor": "Jovan",
+    "apellidopProfesor": "Del Prado",
+    "apellidomProfesor": "Martínez",
+    "matriculaProfesor": "2334456",
+    "correoInstitucional": "2334456@alumnos.utn.edu",
+    "contraseña": "MovilXD",
+    "confcontraseña": "MovilXD"
+}
+
+//Borrar PROFESOR
+###
+DELETE http://localhost:5000/profesor/32b36b94-4dae-4aad-b929-464e7cbbb5e2
+
+
+
+
+
+//////////////////////////////////////////////////////////////SESSIÓN PERSONALADMIN/////////////////////////////////////////////////////////////////////////
+###
+POST http://localhost:5000/loginPA
+Content-Type: application/json
+
+{
+    "correoInstitucional": "DaniTI@utn.edu.mx",
+    "contraseña": "C.ronaldo2022"
+}
+
+###
+GET http://localhost:5000/MePA
+
+###
+DELETE http://localhost:5000/logoutPA
